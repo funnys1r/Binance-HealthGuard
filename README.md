@@ -172,14 +172,14 @@ This repository enriches the official `binance-skills-hub` with **four groundbre
 3. 见证奇迹：如果您的环境尚缺组件，龙虾会主动引导；若一切就绪，它将为您呈现一份极具冲击力的**结构化风控报告**！
 
 <a name="cli-usage"></a>
-### 💻 CLI 开发者入口 (环境预检)
-为了提升工程可靠性，我们提供了 CLI 编排脚本。您可以在终端运行：
+### 💻 开发者入口 (环境预检 & 一键安装)
+为了达到生产级成熟度，我们提供了自动化部署工具：
 ```bash
-# 执行环境与凭据预检
-node cli/healthguard.js
+# [一键安装] 自动补全所有币安官方 Skill 与 6551 MCP 依赖
+node scripts/installer.js
 
-# 以“代守卫”模式预览脚本
-node cli/healthguard.js --guardian
+# [环境预检] 验证凭据与技能状态
+node cli/healthguard.js
 ```
 
 ### 🔥 多场景交互指令示例
