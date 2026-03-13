@@ -55,7 +55,11 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
 3. **Multi-dimensional Diagnosis**: For each major asset in the filtered list, do the following concurrently:
    - Call the `token-unlocks` API to check if >2% of supply is unlocking in the next 7 days.
    - Call `opennews` to search for macro or project-specific breaking news in the last 24h.
-   - Call `opentwitter` to gauge real-time social sentiment (Fear/Greed, influencer mentions) regarding the token ticker.
+   - Call `opentwitter` to gauge real-time social sentiment regarding the token ticker.
+   - **Technical Health Check**: Call the `alpha` skill's `/klines` endpoint (e.g., 1h interval, limit 50). Perform a basic TA on the returned candles:
+     - Detect **RSI** levels (Overbought > 70 / Oversold < 30).
+     - Identify **MA trend** (Bullish/Bearish crossover).
+     - Tag assets showing "Technical Weakness" if indicators are Bearish.
 
 4. **Dynamic Scheduling**: 
    Obey the user's commands regarding frequency (e.g., "every 15 minutes" or "every 2 hours" or a one-time check).

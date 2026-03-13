@@ -12,7 +12,7 @@
 <a name="english"></a>
 ## 🛡️ Binance HealthGuard (English)
 
-HealthGuard represents a paradigm shift from traditional "passive trading bots" to a **proactive, all-weather asset health monitoring system**. It deeply integrates with Binance APIs, economic fundamentals (Tokenomist), and global market sentiment (6551 OpenNews & OpenTwitter MCP) to safeguard your portfolio against black swan events.
+HealthGuard represents a paradigm shift from traditional "passive trading bots" to a **proactive, all-weather asset health monitoring system**. It deeply integrates with Binance APIs, economic fundamentals (Tokenomist), technical indicators (RSI/MA), and global market sentiment (6551 OpenNews & OpenTwitter MCP) to safeguard your portfolio against black swan events.
 
 ### 📦 Modular Dependencies
 
@@ -38,7 +38,7 @@ This repository enriches the official `binance-skills-hub` with **three groundbr
 <a name="chinese"></a>
 ## 🛡️ Binance HealthGuard (中文说明)
 
-HealthGuard (神盾龙虾) 让加密 AI 助手从传统的“被动响应器”进化为**7×24小时全天候主动监控的智能财产私人医生**。通过深度融合币安官方原生 API、宏观经济学解锁数据以及 6551 团队的推特/新闻 MCP 扩展，它能在黑天鹅事件爆发前，为您提供专业级的防守闭产。
+HealthGuard (神盾龙虾) 让加密 AI 助手从传统的“被动响应器”进化为**7×24小时全天候主动监控的智能财产私人医生**。通过深度融合币安官方原生 API、宏观经济学解锁数据、K线技术指标分析以及 6551 团队的推特/新闻 MCP 扩展，它能在黑天鹅事件爆发前，为您提供专业级的防守闭产。
 
 ### 📦 核心依赖模块
 
