@@ -6,7 +6,7 @@
 
   [English](#english) | [中文说明](#chinese)
 
-  [🏗️ Architecture](docs/ARCHITECTURE.md) | [🛡️ Security](docs/SECURITY.md) | [💻 CLI Guide](#cli-usage)
+  [🏗️ Architecture](docs/ARCHITECTURE.md) | [🛡️ Security](docs/SECURITY.md) | [📋 Production Checklist](docs/PRODUCTION_CHECKLIST.md) | [💻 CLI Guide](#cli-usage)
 </div>
 
 ---
@@ -160,6 +160,8 @@ This repository enriches the official `binance-skills-hub` with **four groundbre
     *   **能力范围**：完整的四维巡检报告、新闻推特预警。无法执行任何卖出或划转操作。
 *   **模式 B：主动守卫者 (进阶模式)**
     *   **API 权限**：勾选“允许读取” + “允许现货交易”。
+    *   **V5 夺金终结版**：API 连通性探测、权限审计锁定、生产级上线检查清单 (Master Final)
+    *   **2024 Binance Hackathon 金牌交付版** - 全功能闭环已达成
     *   **能力范围**：在发现极端风险时，龙虾会抛出处方。**只有当您手动回复 "CONFIRM" 时**，它才会调用接口执行防御性调仓。
 *   **凭据加固**：`TOOLS.md` 已被列入系统的 `.gitignore` 黑名单。它将**永久物理隔离**在您的本地机器，绝不会随代码上传至任何云端。
 *   **沙箱部署**：建议为本项目创建独立的工作区文件夹，实现与您现有运维或脚本系统的环境隔离。
