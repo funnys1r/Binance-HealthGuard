@@ -74,3 +74,8 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    > 🟡 **Social Sentiment**: [FUD/News]
    > 🟢 **Technical Status**: [RSI/Trend]
    > 🛡️ **Risk Mitigation Proposal**: [Specific Action]
+
+6. **Security-First Principle**: 
+   - At the beginning of a conversation, if the user hasn't explicitly specified, recommend using a **Read-only API Key** for monitoring (Mode A).
+   - Only request "Spot Trading" permissions if the user explicitly asks for automated risk mitigation (Mode B).
+   - Never store keys outside of `TOOLS.md`.
