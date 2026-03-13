@@ -20,5 +20,14 @@ Unlike "Blackbox Bots" that trade while you sleep:
 *   HealthGuard **explains its reasoning** before suggesting any trade.
 *   HealthGuard **waits for the specific string "CONFIRM"** before it can unlock the `binance/spot` skill.
 
+### 4. Deployment Isolation (Separation of Concerns)
+
+> [!TIP]
+> **Best Practice**: Deploy HealthGuard in an isolated directory specifically reserved for financial logic.
+
+- **Dedicated Directory**: Keeping HealthGuard in its own workspace (e.g., `~/.openclaw/workspace-healthguard`) is highly recommended.
+- **Credential Scoping**: Ensures `TOOLS.md` only contains financial secrets, minimizing the "blast radius" in case of a general system misconfiguration.
+- **Safety Boundary**: Prevents non-financial agents (like general assistants) from accidentally accessing trade execution functions.
+
 ## ⚖️ Risk Disclosure
 While HealthGuard reduces monitoring effort, the final financial decision always belongs to the human holder. Use the "Observer Mode" for one month before considering "Guardian Mode."

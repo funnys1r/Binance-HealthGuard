@@ -47,6 +47,10 @@ This project is built upon the following official Binance Skills:
 - **`skills/binance/alpha`**: For real-time market price monitoring.
 - **`skills/binance/spot`**: For executing risk-mitigation trades.
 
+###*   **🚨 RECOMMENDED: Dedicated Workspace Isolation**
+    *   **Principle**: We strongly advise creating a **Dedicated OpenClaw Workspace** (e.g., `~/.openclaw/workspace-healthguard`) specifically for HealthGuard, rather than mixing it with general-purpose skills (such as coding assistants, writing tools, or general administration).
+    *   **Reasoning**: Financial Agents manage sensitive credentials and high-stakes decisions. Isolating the workspace prevents **Context Contamination**, unintended skill execution, and ensures that your asset management environment remains a secure, focused "Sandbox."
+
 ### ✨ Exclusive Innovations in this Fork
 
 This repository enriches the official `binance-skills-hub` with **three groundbreaking, custom-built skills**:
@@ -164,7 +168,10 @@ This repository enriches the official `binance-skills-hub` with **four groundbre
     *   **2024 Binance Hackathon 金牌交付版** - 全功能闭环已达成
     *   **能力范围**：在发现极端风险时，龙虾会抛出处方。**只有当您手动回复 "CONFIRM" 时**，它才会调用接口执行防御性调仓。
 *   **凭据加固**：`TOOLS.md` 已被列入系统的 `.gitignore` 黑名单。它将**永久物理隔离**在您的本地机器，绝不会随代码上传至任何云端。
-*   **沙箱部署**：建议为本项目创建独立的工作区文件夹，实现与您现有运维或脚本系统的环境隔离。
+*   **🚨 核心建议：独立工作区隔离 (Deployment Isolation)**
+    *   **原则**：我们强烈建议为 HealthGuard 创建一个**独立的 OpenClaw 工作区** (例如 `~/.openclaw/workspace-healthguard`)，而不是将其与其他通用技能（如文字创作、代码助手、系统管理等）混用。
+    *   **理由**：金融类 Agent 涉及敏感 API Key 与关键资金决策。通过物理隔离工作区，可以从根源上避免“技能误触发”、“环境变量污染”以及“跨上下文信息泄漏”，确保您的资产管理环境是纯净且专用的。
+*   **沙箱部署**：建议通过容器化或独立目录实现物理隔离。
 
 ### 🚀 如何体验神盾龙虾？
 
