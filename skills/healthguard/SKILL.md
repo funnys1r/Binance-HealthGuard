@@ -65,4 +65,12 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    Obey the user's commands regarding frequency (e.g., "every 15 minutes" or "every 2 hours" or a one-time check).
 
 5. **Actionable Reporting**: 
-   Generate a categorized report (Safe/Warning/Critical). If a critical risk is identified (e.g., heavy unlock + negative news), Propose a specific risk-mitigation action (e.g., "Recommend redeeming your ARB from Simple Earn and selling at market price. Reply 'CONFIRM' to execute.").
+   Generate a categorized report (Safe/Warning/Critical). If a critical risk is identified (e.g., heavy unlock + negative news), Propose a specific risk-mitigation action.
+
+   **Standard Report Template**:
+   > **[HealthGuard Report #ID]**
+   > 🟢 **Asset Snapshot**: [Balances]
+   > 🔴 **Economic Risk**: [Unlocks]
+   > 🟡 **Social Sentiment**: [FUD/News]
+   > 🟢 **Technical Status**: [RSI/Trend]
+   > 🛡️ **Risk Mitigation Proposal**: [Specific Action]
