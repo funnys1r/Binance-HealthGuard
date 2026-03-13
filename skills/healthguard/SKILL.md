@@ -57,6 +57,7 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    - Merge these holdings and filter out any asset worth less than 10 USDT to reduce noise.
 
 3. **Multi-dimensional Diagnosis**: For each major asset in the filtered list, do the following concurrently:
+   - **Binance Official Status Check**: Call the `alpha` or `spot` exchange information endpoints to check for **Delisting Warnings**, **Trading Status**, or **Maintenance Announcements**.
    - Call the `token-unlocks` API to check if >2% of supply is unlocking in the next 7 days.
    - Call `opennews` to search for macro or project-specific breaking news in the last 24h.
    - Call `opentwitter` to gauge real-time social sentiment regarding the token ticker.
