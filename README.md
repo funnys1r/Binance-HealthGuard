@@ -19,6 +19,12 @@ HealthGuard is meticulously crafted for:
 *   **The Busy Professional**: You want a reliable "Doctor" to alert you ONLY when a real risk (unlocks/FUD) is detected.
 *   **The Safety-Conscious Investor**: You prefer a read-only observer that only asks for permission when defensive action is critical.
 
+### 💡 Why HealthGuard for Passive Holders?
+For those who "own but don't watch," the market is a series of **Invisible Risks**. HealthGuard serves as your **Digital Insurance Policy**:
+*   **Anti-FUD Filtering**: We decode complex sentiment so you don't have to scroll through X.
+*   **Inflation Alerting**: We monitor the Tokenomist schedule to prevent you from being the "exit liquidity" during mass unlocks.
+*   **Official Linkage**: We are the only agent that checks **Binance Official Delisting Announcements** in real-time.
+
 ### 🛡️ Security Philosophy: Humans-in-the-Loop
 We believe AI should be a **Copilot, not an Autopilot**. 
 1.  **Transparency**: The Agent shares its research (news, technicals, unlocks) before making a proposal. 
@@ -104,6 +110,12 @@ HealthGuard 为以下用户而生：
 *   **“买了就不看”的佛系持仓者**：您有资产，但不想被 24 小时波动的 K 线绑架。
 *   **忙碌的专业人士**：您需要一位“私人医生”，只在检测到真正的硬伤（解锁/突发利空）时才帮您预警。
 *   **安全至上的稳健投资者**：您更倾向于使用一个“观察者模式”的 AI，只有在黑天鹅降临时才申请临时防御权限。
+
+### 💡 为什么“佛系持仓者”需要神盾龙虾？
+对于那些“只买入不看盘”的用户，市场是一个**布满隐形成本**的雷区。HealthGuard 就是您的**数字保险单**：
+*   **降噪除噪**：我们帮您解析推特上的复杂情绪，您无需亲自翻阅。
+*   **通胀预警**：我们全天候监控 Tokenomist 解锁计划，防止您在代币天量释放时成为“流动性接盘侠”。
+*   **官方直连**：我们是极少数能实时抓取 **币安官方下架公告** 并进行推演的 AI 助手。
 
 ### 🛡️ 安全哲学：人永远在决策回路中 (HITL)
 我们坚信 AI 应该是 **“副驾驶”，而不是“无人机”**：
