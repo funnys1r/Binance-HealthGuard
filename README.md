@@ -5,6 +5,8 @@
   <p>An awarding-winning entry for the Binance AI Agent Hackathon combining OpenClaw, Tokenomics, and MCP Services.</p>
 
   [English](#english) | [中文说明](#chinese)
+
+  [🏗️ Architecture](docs/ARCHITECTURE.md) | [🛡️ Security](docs/SECURITY.md) | [💻 CLI Guide](#cli-usage)
 </div>
 
 ---
