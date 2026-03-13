@@ -28,6 +28,8 @@ To eliminate "Production Risks," we enforce three layers of security:
 3. **Physical Isolation**: Credential files are excluded from Git and recommended to be stored in an OS-level restricted directory.
 
 ## 📊 Data Flow Orchestration
-1. **Reconnaissance**: Merging Spot balances + Earn balances into a unified weighted portfolio.
-2. **Correlation**: Cross-referencing price volatility with upcoming unlocks and macro news.
-3. **Synthesis**: Converting complex raw data into a human-readable "Medical Prescription" (Take-Action recommendation).
+1. **Reconnaissance**: Merge Spot balances + Earn balances into a unified weighted portfolio.
+2. **Thresholding**: Automatically classify assets into **major holdings (>=10 USDT)** and **minor holdings (<10 USDT)**.
+3. **Automatic Deep Analysis**: For every major holding, run the full analysis stack by default: exchange status, unlocks, news, social sentiment, and technicals.
+4. **Correlation**: Cross-reference price volatility with upcoming unlocks, exchange status, and macro/news sentiment.
+5. **Synthesis**: Convert complex raw data into a human-readable “Medical Prescription” (take-action recommendation) while keeping minor holdings compressed into summary form.

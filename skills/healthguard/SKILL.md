@@ -60,30 +60,46 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
 2. **Asset Reconnaissance**: 
    - Call the Binance `getUserAsset` endpoint to fetch Spot balances.
    - Call the Binance `simpleEarnFlexiblePosition` and `simpleEarnLockedPosition` (via the `simple-earn` skill) to fetch Earn balances.
-   - Merge these holdings and filter out any asset worth less than 10 USDT to reduce noise.
+   - Merge these holdings into a **single portfolio view** so the user sees total exposure rather than wallet-specific fragments.
+   - Estimate each asset's value in USDT.
+   - Split assets into two groups:
+     - **Major holdings**: assets worth **10 USDT or more**
+     - **Minor holdings**: assets worth **less than 10 USDT**
+   - Minor holdings should still appear in the summary, but they should not trigger full deep analysis unless the user explicitly asks about them.
 
-3. **Multi-dimensional Diagnosis**: For each major asset in the filtered list, do the following concurrently:
-   - **Binance Official Status Check**: Call the `alpha` or `spot` exchange information endpoints to check for **Delisting Warnings**, **Trading Status**, or **Maintenance Announcements**.
-   - Call the `token-unlocks` API to check if >2% of supply is unlocking in the next 7 days.
-   - Call `opennews` to search for macro or project-specific breaking news in the last 24h.
-   - Call `opentwitter` to gauge real-time social sentiment regarding the token ticker.
-   - **Technical Health Check**: Call the `alpha` skill's `/klines` endpoint (e.g., 1h interval, limit 50). Perform a basic TA on the returned candles:
-     - Detect **RSI** levels (Overbought > 70 / Oversold < 30).
-     - Identify **MA trend** (Bullish/Bearish crossover).
-     - Tag assets showing "Technical Weakness" if indicators are Bearish.
+3. **Automatic Multi-dimensional Diagnosis (Default Behavior)**:
+   - For **every holding worth 10 USDT or more**, automatically run the full analysis pipeline **without asking the user for permission to continue**.
+   - This default pipeline must include, whenever the dependencies are available:
+     - **Binance Official Status Check**: use `alpha` or `spot` exchange information endpoints to check for **Delisting Warnings**, **Trading Status**, or **Maintenance Announcements**.
+     - **Token Unlock Risk**: call the `token-unlocks` capability to check whether more than 2% of supply unlocks in the next 7 days.
+     - **News Scan**: call `opennews` for relevant macro or project-specific news in the last 24h.
+     - **Social Sentiment**: call `opentwitter` to assess real-time social sentiment and abnormal FUD/FOMO patterns.
+     - **Technical Health Check**: call the `alpha` skill's `/klines` endpoint (e.g. 1h interval, limit 50) and compute a lightweight technical view:
+       - Detect **RSI** levels (Overbought > 70 / Oversold < 30)
+       - Identify **MA trend** (Bullish/Bearish crossover)
+       - Tag assets showing technical weakness if indicators are Bearish
+   - If some non-critical dependency (for example `opennews` or `opentwitter`) is missing, continue in **degraded mode** and clearly say which parts of the analysis are unavailable.
+   - Do **not** stop the whole workflow just because one optional intelligence source is unavailable.
 
 4. **Dynamic Scheduling**: 
    Obey the user's commands regarding frequency (e.g., "every 15 minutes" or "every 2 hours" or a one-time check).
 
 5. **Actionable Reporting**: 
-   Generate a categorized report (Safe/Warning/Critical). If a critical risk is identified (e.g., heavy unlock + negative news), Propose a specific risk-mitigation action.
+   Generate a categorized report (Safe/Warning/Critical). If a critical risk is identified (e.g., heavy unlock + negative news), propose a specific risk-mitigation action.
+
+   The report should be structured in **three layers**:
+   - **Portfolio Layer**: total assets, stablecoin ratio, number of major holdings, overall account health conclusion
+   - **Major Holdings Layer**: one section per asset worth 10+ USDT, including news / social / unlock / technical summary
+   - **Minor Holdings Layer**: compact summary only, unless the user explicitly asks for detail
 
    **Standard Report Template**:
    > **[HealthGuard Report #ID]**
-   > 🟢 **Asset Snapshot**: [Balances]
+   > 🏛️ **Portfolio Summary**: [Total assets / stablecoin ratio / overall risk]
+   > 🟢 **Major Holdings**: [Per-asset structured findings for assets >= 10 USDT]
+   > ⚪ **Minor Holdings**: [Small positions listed without full deep analysis]
    > 🔴 **Economic Risk**: [Unlocks]
-   > 🟡 **Social Sentiment**: [FUD/News]
-   > 🟢 **Technical Status**: [RSI/Trend]
+   > 🟡 **News & Social Sentiment**: [FUD / News / Twitter summary]
+   > 🟢 **Technical Status**: [RSI / Trend]
    > 🛡️ **Risk Mitigation Proposal**: [Specific Action]
 
 6. **Security-First Principle**: 

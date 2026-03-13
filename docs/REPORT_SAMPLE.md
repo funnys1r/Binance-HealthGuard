@@ -14,6 +14,8 @@
 | **BNB** | $8,200 | 🟢 Safe | No major news |
 | **USDT** | $2,000 | 🟢 Safe | Cash on hand |
 
+**Default policy used in this report:** assets worth **10 USDT or more** receive the full HealthGuard analysis pipeline automatically (news, Twitter sentiment, unlocks, exchange status, technicals). Smaller assets are listed in a compact summary unless explicitly requested.
+
 ---
 
 ## 🔍 Multi-Dimensional Risk Analysis

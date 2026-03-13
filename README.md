@@ -70,6 +70,8 @@ This repository enriches the official `binance-skills-hub` with **three groundbr
 | **Specific Focus** | "Look into $ARB news and unlocks. Is it safe to keep holding?" |
 | **Emergency Action** | "I agree with the proposal. Redeem my $BNB and sell for USDT." |
 
+> **Default analysis policy:** for any asset worth **10 USDT or more**, HealthGuard should automatically run news, Twitter sentiment, token-unlock, exchange-status, and technical checks. It should not ask the user whether they want each analysis step. **Only real execution actions** (redeem / sell / swap / trade) should require explicit `CONFIRM`.
+
 ### 📖 Workflow Walkthrough
 
 1. **User**: "Hey Claw, start HealthGuard."
@@ -215,6 +217,8 @@ node cli/healthguard.js
 5. **用户**：“执行。”（龙虾调用 `spot` 技能秒速完成换手）。
 
 ### 📊 真机演示报告示例
+
+默认情况下，龙虾会对 **估值 >= 10 USDT** 的资产自动执行完整四维巡检（新闻 / 推特 / 解锁 / 技术面），而小额资产只放入摘要区，避免噪音过高。
 
 当侦测到风险时，龙虾会为您输出如下专业报告：
 
