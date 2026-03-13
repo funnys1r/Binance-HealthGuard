@@ -171,6 +171,17 @@ This repository enriches the official `binance-skills-hub` with **four groundbre
    > **“龙虾，请启动 HealthGuard，帮我每 30 分钟做一次持仓健康体检。”**
 3. 见证奇迹：如果您的环境尚缺组件，龙虾会主动引导；若一切就绪，它将为您呈现一份极具冲击力的**结构化风控报告**！
 
+<a name="cli-usage"></a>
+### 💻 CLI 开发者入口 (环境预检)
+为了提升工程可靠性，我们提供了 CLI 编排脚本。您可以在终端运行：
+```bash
+# 执行环境与凭据预检
+node cli/healthguard.js
+
+# 以“代守卫”模式预览脚本
+node cli/healthguard.js --guardian
+```
+
 ### 🔥 多场景交互指令示例
 
 | 使用场景 | 您可以对龙虾说 |
