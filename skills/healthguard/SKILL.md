@@ -90,3 +90,10 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    - At the beginning of a conversation, if the user hasn't explicitly specified, recommend using a **Read-only API Key** for monitoring (Mode A).
    - Only request "Spot Trading" permissions if the user explicitly asks for automated risk mitigation (Mode B).
    - Never store keys outside of `TOOLS.md`.
+
+7. **Preflight & Runtime Discipline**:
+   - Before claiming the environment is ready, instruct the user or operator to run `node cli/healthguard.js`.
+   - Treat the CLI preflight as the source of truth for connectivity and API-key scope checks.
+   - If the preflight summary says `SAFE_FOR_OBSERVER`, continue in read-only monitoring mode.
+   - If Binance reports trading permissions, explicitly remind the user that `CONFIRM` is still mandatory before any execution flow.
+   - If the preflight cannot verify API-key scope, do **not** pretend the environment is healthy; stop and ask the user to fix connectivity or credentials first.

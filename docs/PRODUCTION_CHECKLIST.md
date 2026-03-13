@@ -9,7 +9,9 @@ Before transitioning from **Observer Mode** to **Guardian Mode** with real asset
 - [ ] **IP Whitelisting**: Configure your Binance API Key to only accept requests from your static server IP.
 
 ## ✅ Phase 2: AI Logic Validation
+- [ ] **CLI Smoke Tests Pass**: Run `node tests/cli_smoke_test.js` and verify the guardrails fail closed for missing config and withdrawal markers.
 - [ ] **Mock Test Pass**: Run `node tests/scenario_tester.js` and verify you understand the Agent's decision logic.
+- [ ] **Live Scope Audit Pass**: Run `node cli/healthguard.js` and confirm the API key scope summary matches your intended mode (`SAFE_FOR_OBSERVER` for read-only setups).
 - [ ] **Review Report Format**: Read `docs/REPORT_SAMPLE.md` to know what an alert looks like.
 - [ ] **Human-in-the-Loop Drill**: Practice the `CONFIRM` command in a test environment to ensure you are comfortable with the confirmation flow.
 

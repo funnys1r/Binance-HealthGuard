@@ -34,7 +34,8 @@ function runTests() {
         console.log(`| [PASS] Decision matches safety logic.\n`);
     });
 
-    console.log("✅ All mock scenarios passed. Logic engine is production-ready.");
+    console.log("✅ All mock scenarios passed. Decision logic behaves as expected for the mocked cases.");
+    console.log("ℹ️ Note: This is a mock logic test, not a live integration or trading safety certification.");
 }
 
 runTests();

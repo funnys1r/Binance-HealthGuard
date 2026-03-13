@@ -6,7 +6,7 @@
 
   [English](#english) | [中文说明](#chinese)
 
-  [🏗️ Architecture](docs/ARCHITECTURE.md) | [🛡️ Security](docs/SECURITY.md) | [📋 Production Checklist](docs/PRODUCTION_CHECKLIST.md) | [💻 CLI Guide](#cli-usage)
+  [🏗️ Architecture](docs/ARCHITECTURE.md) | [🛡️ Security](docs/SECURITY.md) | [📋 Production Checklist](docs/PRODUCTION_CHECKLIST.md) | [🧭 Runbook](docs/RUNBOOK.md) | [💻 CLI Guide](#cli-usage)
 </div>
 
 ---
@@ -48,8 +48,8 @@ This project is built upon the following official Binance Skills:
 - **`skills/binance/spot`**: For executing risk-mitigation trades.
 
 ### 🚨 RECOMMENDED: Dedicated Workspace Isolation
-    *   **Principle**: We strongly advise creating a **Dedicated OpenClaw Workspace** (e.g., `~/.openclaw/workspace-healthguard`) specifically for HealthGuard, rather than mixing it with general-purpose skills (such as coding assistants, writing tools, or general administration).
-    *   **Reasoning**: Financial Agents manage sensitive credentials and high-stakes decisions. Isolating the workspace prevents **Context Contamination**, unintended skill execution, and ensures that your asset management environment remains a secure, focused "Sandbox."
+- **Principle**: We strongly advise creating a **Dedicated OpenClaw Workspace** (e.g., `~/.openclaw/workspace-healthguard`) specifically for HealthGuard, rather than mixing it with general-purpose skills (such as coding assistants, writing tools, or general administration).
+- **Reasoning**: Financial Agents manage sensitive credentials and high-stakes decisions. Isolating the workspace prevents **Context Contamination**, unintended skill execution, and ensures that your asset management environment remains a secure, focused sandbox.
 
 ### ✨ Exclusive Innovations in this Fork
 
@@ -182,12 +182,18 @@ This repository enriches the official `binance-skills-hub` with **four groundbre
 
 <a name="cli-usage"></a>
 ### 💻 开发者入口 (环境预检 & 一键安装)
-为了达到生产级成熟度，我们提供了自动化部署工具：
+为了达到更可靠的工程成熟度，我们提供了自动化部署与预检工具：
 ```bash
 # [一键安装] 自动补全所有币安官方 Skill 与 6551 MCP 依赖
 node scripts/installer.js
 
-# [环境预检] 验证凭据与技能状态
+# [CLI 烟雾测试] 验证缺配置/提现标记等基础防线
+node tests/cli_smoke_test.js
+
+# [逻辑样例测试] 验证 mock 场景下的决策输出
+node tests/scenario_tester.js
+
+# [环境预检] 真实探测 Binance 连通性，并校验 API Key 权限摘要
 node cli/healthguard.js
 ```
 

@@ -13,6 +13,7 @@ Never give the Agent more power than it needs:
 *   **Git Immunity**: Our `.gitignore` is hard-coded to ignore `TOOLS.md`. Your keys never leave your drive.
 *   **OS Isolation**: On Linux/Mac, run: `chmod 600 TOOLS.md` to ensure only the agent's process can read it.
 *   **CI/CD Safety**: No keys are used during build or deployment phases.
+*   **Real Scope Verification**: Run `node cli/healthguard.js` before use. The preflight now performs a live Binance API key scope audit and prints a structured summary instead of relying on local text hints alone.
 
 ### 3. Human-in-the-Loop (HITL) Enforcement
 Unlike "Blackbox Bots" that trade while you sleep:
