@@ -47,7 +47,7 @@ This project is built upon the following official Binance Skills:
 - **`skills/binance/alpha`**: For real-time market price monitoring.
 - **`skills/binance/spot`**: For executing risk-mitigation trades.
 
-###*   **🚨 RECOMMENDED: Dedicated Workspace Isolation**
+### 🚨 RECOMMENDED: Dedicated Workspace Isolation
     *   **Principle**: We strongly advise creating a **Dedicated OpenClaw Workspace** (e.g., `~/.openclaw/workspace-healthguard`) specifically for HealthGuard, rather than mixing it with general-purpose skills (such as coding assistants, writing tools, or general administration).
     *   **Reasoning**: Financial Agents manage sensitive credentials and high-stakes decisions. Isolating the workspace prevents **Context Contamination**, unintended skill execution, and ensures that your asset management environment remains a secure, focused "Sandbox."
 
