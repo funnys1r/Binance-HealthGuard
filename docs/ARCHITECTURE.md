@@ -13,9 +13,11 @@ graph TD
     Orchestrator -->|Dynamic Fetch| Assets[Binance Assets & Simple Earn]
     Orchestrator -->|Scan| Economic[Tokenomist.ai Unlocks]
     Orchestrator -->|Optionally Listen| Social[OpenNews / OpenTwitter MCP]
+    Orchestrator -->|Optionally Rank| Rank[Crypto Market Rank]
+    Orchestrator -->|Optionally Time| Signal[Trading Signal]
     Orchestrator -->|Check| Official[Binance Official Announcements]
     
-    Orchestrator -->|Construct| Report[Structured Health Report + Coverage / Confidence]
+    Orchestrator -->|Construct| Report[Structured Health Report + Coverage / Confidence + Score]
     Report -->|Propose| Action{Risk Mitigation?}
     Action -->|Require Human Confirm| User
     User -->|CONFIRM| Execute[Spot Trading Skill]

@@ -25,7 +25,9 @@ HealthGuard supports **two capability tiers**:
 2. **Enhanced Intelligence Mode (optional)**
    - `opennews` for macro / project news
    - `opentwitter` for social sentiment and FUD/FOMO detection
-   - `6551.io API Token` only when the user wants these enhanced intelligence features
+   - `crypto-market-rank` for market-priority ranking (what to watch first, and why)
+   - `trading-signal` for action-context enrichment (trigger price, current price, exit logic, replayable signal context)
+   - `6551.io API Token` only when the user wants those enhanced news/social features
 
 The 6551 toolchain is therefore an **optional enhancement**, not a hard requirement for basic HealthGuard operation.
 
@@ -92,22 +94,27 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
        - Detect **RSI** levels (Overbought > 70 / Oversold < 30)
        - Identify **MA trend** (Bullish/Bearish crossover)
        - Tag assets showing technical weakness if indicators are Bearish
+     - **Market Priority Context**: if `crypto-market-rank` is available, use it to explain whether the asset is currently high-priority in the broader market and why it deserves attention now.
+     - **Action Context**: if `trading-signal` is available, include signal-side context such as trigger price, current price, exit rate, max gain, status, or replayable signal summaries. This should strengthen timing analysis, not replace Human-in-the-Loop approval.
    - If some non-critical dependency (for example `opennews` or `opentwitter`) is missing, continue in **degraded mode** and clearly say which parts of the analysis are unavailable.
    - Do **not** stop the whole workflow just because one optional intelligence source is unavailable.
    - When degraded mode is active, the final report must include an explicit **Intelligence Coverage** section listing:
      - which sources were used successfully
      - which optional sources were unavailable
      - a final report confidence level such as `High`, `Medium`, or `Low`
+   - Treat `crypto-market-rank` and `trading-signal` as **optional enhancers** too: their absence should lower richness, not break the report.
 
 4. **Dynamic Scheduling**: 
    Obey the user's commands regarding frequency (e.g., "every 15 minutes" or "every 2 hours" or a one-time check).
 
 5. **Actionable Reporting**: 
-   Generate a categorized report (Safe/Warning/Critical). If a critical risk is identified (e.g., heavy unlock + negative news), propose a specific risk-mitigation action.
+   Generate a categorized report using a **standardized risk enum**: `SAFE`, `WATCH`, `WARNING`, `CRITICAL`.
+   Also calculate a **Portfolio Health Score** on a 0-100 scale using a stable and explainable method.
+   If a critical risk is identified (e.g., heavy unlock + negative news), propose a specific risk-mitigation action.
 
    The report should be structured in **three layers**:
-   - **Portfolio Layer**: total assets, stablecoin ratio, number of major holdings, overall account health conclusion
-   - **Major Holdings Layer**: one section per asset worth 10+ USDT, including news / social / unlock / technical summary
+   - **Portfolio Layer**: total assets, stablecoin ratio, number of major holdings, overall account health conclusion, unified health score, and risk enum
+   - **Major Holdings Layer**: one section per asset worth 10+ USDT, including news / social / unlock / technical summary, plus market-rank / trading-signal context when available
    - **Minor Holdings Layer**: compact summary only, unless the user explicitly asks for detail
 
    **Standard Report Template**:
