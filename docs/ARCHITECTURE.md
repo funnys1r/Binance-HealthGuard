@@ -12,9 +12,9 @@ graph TD
     end
     Orchestrator -->|Dynamic Fetch| Assets[Binance Assets & Simple Earn]
     Orchestrator -->|Scan| Economic[Tokenomist.ai Unlocks]
-    Orchestrator -->|Optionally Listen| Social[OpenNews / OpenTwitter MCP]
-    Orchestrator -->|Optionally Rank| Rank[Crypto Market Rank]
-    Orchestrator -->|Optionally Time| Signal[Trading Signal]
+    Orchestrator -->|Listen| CoreRank[Crypto Market Rank]
+    Orchestrator -->|Time| CoreSignal[Trading Signal]
+    Orchestrator -->|Optionally Listen| Social[OpenNews / OpenTwitter / BWEnews / External Feeds]
     Orchestrator -->|Check| Official[Binance Official Announcements]
     
     Orchestrator -->|Construct| Report[Structured Health Report + Coverage / Confidence + Score]

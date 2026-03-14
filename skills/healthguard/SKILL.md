@@ -15,21 +15,23 @@ This skill transforms the agent into a 24/7 intelligent crypto wealth guardian. 
 
 HealthGuard supports **two capability tiers**:
 
-1. **Core Mode (default, no 6551 required)**
+1. **Core Mode (default)**
    - Binance assets / balances
    - Simple Earn visibility
    - Binance official status checks
    - Token unlock analysis
    - Technical analysis
-
-2. **Enhanced Intelligence Mode (optional)**
-   - `opennews` for macro / project news
-   - `opentwitter` for social sentiment and FUD/FOMO detection
    - `crypto-market-rank` for market-priority ranking (what to watch first, and why)
    - `trading-signal` for action-context enrichment (trigger price, current price, exit logic, replayable signal context)
-   - `6551.io API Token` only when the user wants those enhanced news/social features
 
-The 6551 toolchain is therefore an **optional enhancement**, not a hard requirement for basic HealthGuard operation.
+2. **Enhanced Intelligence Mode (optional external intelligence)**
+   - `opennews` for macro / project news
+   - `opentwitter` for social sentiment and FUD/FOMO detection
+   - `BWEnews` WebSocket / RSS for real-time market-event enrichment
+   - third-party news/event streams such as Formula News / exchange-adjacent event feeds
+   - `6551.io API Token` only when the user wants those external news/social intelligence features
+
+The 6551 / BWEnews / third-party news toolchain is therefore an **optional enhancement**, not a hard requirement for basic HealthGuard operation.
 
 ### TOOLS.md Structure
 
@@ -62,7 +64,7 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    - **Action-Oriented**: Always pair a risk with a concrete, defensive proposal (e.g., "Redeem to USDT").
 
 1. **Dependency Check & Onboarding**: 
-   Before running any analysis, check whether `opentwitter` and `opennews` are available.
+   Before running any analysis, check whether external intelligence sources such as `opentwitter`, `opennews`, or similar event/news feeds are available.
    - If they are available, use them as part of the enhanced intelligence layer.
    - If one or both are missing, DO NOT crash and DO NOT pause the whole workflow.
    - Instead, enter **degraded mode** and continue the report with the remaining available signals.

@@ -27,16 +27,17 @@
 - Binance Assets / Earn：OK / unavailable
 - Binance Official Status：OK / unavailable
 - Token Unlocks：OK / unavailable
-- OpenNews：OK / unavailable
-- OpenTwitter：OK / unavailable
 - Crypto Market Rank：OK / unavailable
 - Trading Signal：OK / unavailable
+- OpenNews：OK / unavailable
+- OpenTwitter：OK / unavailable
+- BWEnews / 第三方事件流：OK / unavailable
 - Confidence：High / Medium / Low
 
 ### 置信度建议
-- **High**：核心数据 + 增强情报都可用
-- **Medium**：核心数据可用，但部分增强情报缺失
-- **Low**：仅能完成有限的基础巡检，建议用户补齐依赖
+- **High**：核心数据链（含 Binance 原生分析能力）完整，且外部增强情报也可用
+- **Medium**：核心数据链完整，但部分外部增强情报缺失
+- **Low**：核心数据链本身也存在明显缺口，建议用户补齐依赖后再参考结论
 
 ## 4. 主要持仓（Major Holdings，>=10 USDT）
 每个资产建议固定展示以下字段：
