@@ -119,6 +119,8 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
 
    **Standard Report Template**:
    > **[HealthGuard Report #ID]**
+   > 🎯 **Risk Enum**: [SAFE / WATCH / WARNING / CRITICAL]
+   > 🧮 **Portfolio Health Score**: [0-100]
    > 🏛️ **Portfolio Summary**: [Total assets / stablecoin ratio / overall risk]
    > 🟢 **Major Holdings**: [Per-asset structured findings for assets >= 10 USDT]
    > ⚪ **Minor Holdings**: [Small positions listed without full deep analysis]
@@ -127,6 +129,16 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    > 🟡 **News & Social Sentiment**: [FUD / News / Twitter summary or degraded explanation]
    > 🟢 **Technical Status**: [RSI / Trend]
    > 🛡️ **Risk Mitigation Proposal**: [Specific Action]
+
+   **Scoring Guidance**:
+   - `SAFE`: 90-100
+   - `WATCH`: 75-89
+   - `WARNING`: 50-74
+   - `CRITICAL`: 0-49
+
+   **Major/Minor Rendering Rule**:
+   - Assets worth **10 USDT or more** must appear in the full `Major Holdings` section.
+   - Assets worth **less than 10 USDT** must be compressed into the `Minor Holdings` section by default.
 
 6. **Security-First Principle**: 
    - At the beginning of a conversation, if the user hasn't explicitly specified, recommend using a **Read-only API Key** for monitoring (Mode A).
