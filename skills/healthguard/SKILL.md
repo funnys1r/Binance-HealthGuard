@@ -13,8 +13,21 @@ This skill transforms the agent into a 24/7 intelligent crypto wealth guardian. 
 
 ## Authentication & Dependencies
 
-HealthGuard is a composite skill that relies on external MCP servers for deep fundamental analysis.
-It explicitly requires the `6551.io API Token` to access OpenNews and OpenTwitter MCP services.
+HealthGuard supports **two capability tiers**:
+
+1. **Core Mode (default, no 6551 required)**
+   - Binance assets / balances
+   - Simple Earn visibility
+   - Binance official status checks
+   - Token unlock analysis
+   - Technical analysis
+
+2. **Enhanced Intelligence Mode (optional)**
+   - `opennews` for macro / project news
+   - `opentwitter` for social sentiment and FUD/FOMO detection
+   - `6551.io API Token` only when the user wants these enhanced intelligence features
+
+The 6551 toolchain is therefore an **optional enhancement**, not a hard requirement for basic HealthGuard operation.
 
 ### TOOLS.md Structure
 
@@ -47,15 +60,16 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    - **Action-Oriented**: Always pair a risk with a concrete, defensive proposal (e.g., "Redeem to USDT").
 
 1. **Dependency Check & Onboarding**: 
-   Before running any analysis, you MUST check if the user has the `opentwitter` and `opennews` tools available.
-   - If they are missing, DO NOT crash or stop abruptly.
-   - Gracefully instruct the user: 
-     "Master, I noticed you haven't installed the required 6551 MCP skills. To enable my full diagnostic powers, please run these commands in your terminal:
+   Before running any analysis, check whether `opentwitter` and `opennews` are available.
+   - If they are available, use them as part of the enhanced intelligence layer.
+   - If one or both are missing, DO NOT crash and DO NOT pause the whole workflow.
+   - Instead, enter **degraded mode** and continue the report with the remaining available signals.
+   - Only explain the missing optional intelligence sources briefly, for example:
+     "Master, enhanced intelligence mode is partially unavailable right now: OpenNews/OpenTwitter is not installed. I can still complete the core portfolio health check using assets, unlocks, exchange status, and technicals."
+   - If the user wants the enhanced intelligence layer, then instruct them how to install it:
      `npx skills add https://github.com/6551Team/opentwitter-mcp --skill opentwitter`
-     `npx skills add https://github.com/6551Team/opennews-mcp --skill opennews`"
-   - Next, instruct the user on how to get the required token:
-     "Once installed, please visit **https://6551.io** to register and obtain your free API Token. Paste the token into your `TOOLS.md` file under a `## 6551 Accounts` header. Tell me when you're ready!"
-   - Pause execution until the user confirms readiness.
+     `npx skills add https://github.com/6551Team/opennews-mcp --skill opennews`
+   - Only ask them to add a `6551.io API Token` if they explicitly want those enhanced news/social features.
 
 2. **Asset Reconnaissance**: 
    - Call the Binance `getUserAsset` endpoint to fetch Spot balances.
@@ -80,6 +94,10 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
        - Tag assets showing technical weakness if indicators are Bearish
    - If some non-critical dependency (for example `opennews` or `opentwitter`) is missing, continue in **degraded mode** and clearly say which parts of the analysis are unavailable.
    - Do **not** stop the whole workflow just because one optional intelligence source is unavailable.
+   - When degraded mode is active, the final report must include an explicit **Intelligence Coverage** section listing:
+     - which sources were used successfully
+     - which optional sources were unavailable
+     - a final report confidence level such as `High`, `Medium`, or `Low`
 
 4. **Dynamic Scheduling**: 
    Obey the user's commands regarding frequency (e.g., "every 15 minutes" or "every 2 hours" or a one-time check).
@@ -97,8 +115,9 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    > 🏛️ **Portfolio Summary**: [Total assets / stablecoin ratio / overall risk]
    > 🟢 **Major Holdings**: [Per-asset structured findings for assets >= 10 USDT]
    > ⚪ **Minor Holdings**: [Small positions listed without full deep analysis]
+   > 🧩 **Intelligence Coverage**: [Used sources / missing sources / confidence]
    > 🔴 **Economic Risk**: [Unlocks]
-   > 🟡 **News & Social Sentiment**: [FUD / News / Twitter summary]
+   > 🟡 **News & Social Sentiment**: [FUD / News / Twitter summary or degraded explanation]
    > 🟢 **Technical Status**: [RSI / Trend]
    > 🛡️ **Risk Mitigation Proposal**: [Specific Action]
 

@@ -38,14 +38,19 @@ We believe AI should be a **Copilot, not an Autopilot**.
 <a name="english"></a>
 ## 🛡️ Binance HealthGuard (English)
 
-HealthGuard represents a paradigm shift from traditional "passive trading bots" to a **proactive, all-weather asset health monitoring system**. It deeply integrates with Binance APIs (including **Official Announcements & Delistings**), economic fundamentals (Tokenomist), technical indicators (RSI/MA), and global market sentiment (6551 OpenNews & OpenTwitter MCP) to safeguard your portfolio against black swan events.
+HealthGuard represents a paradigm shift from traditional "passive trading bots" to a **proactive, all-weather asset health monitoring system**. In its **core mode**, it can already analyze portfolio structure, Binance official status, token unlocks, and technical indicators. In its **enhanced mode**, it additionally integrates 6551 OpenNews and OpenTwitter MCP intelligence to safeguard your portfolio against black swan events with richer context.
 
 ### 📦 Modular Dependencies
 
-This project is built upon the following official Binance Skills:
+**Core mode** is built upon the following official Binance Skills:
 - **`skills/binance/assets`**: For fetching core spot account balances.
 - **`skills/binance/alpha`**: For real-time market price monitoring.
 - **`skills/binance/spot`**: For executing risk-mitigation trades.
+
+**Enhanced intelligence mode** optionally adds:
+- **`opennews`**: macro / project news enrichment
+- **`opentwitter`**: social sentiment enrichment
+- **`6551.io API Token`**: only if the user wants those enhanced intelligence features
 
 ### 🚨 RECOMMENDED: Dedicated Workspace Isolation
 - **Principle**: We strongly advise creating a **Dedicated OpenClaw Workspace** (e.g., `~/.openclaw/workspace-healthguard`) specifically for HealthGuard, rather than mixing it with general-purpose skills (such as coding assistants, writing tools, or general administration).
@@ -75,10 +80,12 @@ This repository enriches the official `binance-skills-hub` with **three groundbr
 ### 📖 Workflow Walkthrough
 
 1. **User**: "Hey Claw, start HealthGuard."
-2. **Claw**: "Master, I'm ready, but you need OpenNews/OpenTwitter MCP. Run `npx skills add...` or shall I do it for you?"
-3. **User**: "You do it." (Claw installs dependencies).
-4. **Claw**: "Done! Now, I see your **32.5 ETH** in Simple Earn. ETH RSI is 72 (Overbought) and there's a macro news about SEC. I suggest moving to USDT. Confirm?"
+2. **Claw**: "Master, core mode is ready. I can already inspect your holdings, exchange status, unlock risks, and technicals. If you want richer intelligence, I can also use OpenNews/OpenTwitter after you enable the optional 6551 stack."
+3. **User**: "Run the check now." 
+4. **Claw**: "Done! I see your **32.5 ETH** in Simple Earn. ETH RSI is 72 (Overbought). Enhanced intelligence mode is currently available, and macro news around SEC is negative. I suggest moving part of the position to USDT. Confirm?"
 5. **User**: "Confirm." (Claw executes the swap).
+
+If the optional 6551 stack is not installed, HealthGuard should still complete the core report and explicitly say that news/social sentiment coverage is unavailable.
 
 ### 📊 Sample Diagnostic Report
 
@@ -153,7 +160,7 @@ This repository enriches the official `binance-skills-hub` with **four groundbre
 
 在官方原版 `binance-skills-hub` 的基础上，我们原创开发了 **三大杀手级 Skill**：
 
-1. **`healthguard` (调度核心与诊脉器)**：实现动态高频巡查工作流。具备极客级别的**“环境自愈能力”**——在启动时自动检测 6551 MCP 等依赖环境，如发现缺失，将主动用自然语言对话引导用户完成 `npx skills add` 按需加载，彻底消灭“人工查阅说明书”的糟糕体验。
+1. **`healthguard` (调度核心与诊脉器)**：实现动态高频巡查工作流。具备极客级别的**“环境自愈能力”**——在启动时自动检测 6551 MCP 等增强依赖环境，如发现缺失，将优雅降级到基础巡检模式，并在需要时主动引导用户完成 `npx skills add` 按需加载，彻底消灭“人工查阅说明书”的糟糕体验。
 2. **`simple-earn` (理财资产透视镜)**：填补了原本只能查现货的盲区。赋予龙虾穿透查询“活期/定期理财”中沉睡资金的能力，准确掌握用户的真实重仓标的。
 3. **`token-unlocks` (通胀砸盘预警机)**：对接第三方经济学 API，一旦侦测到重仓币未来 7 天有极其庞大的代币解锁，系统将立即发出抛售预警。
 
@@ -180,7 +187,7 @@ This repository enriches the official `binance-skills-hub` with **four groundbre
 1. 下载本仓库并作为 OpenClaw 工作空间挂载。
 2. 对你的小龙虾发出破冰指令：
    > **“龙虾，请启动 HealthGuard，帮我每 30 分钟做一次持仓健康体检。”**
-3. 见证奇迹：如果您的环境尚缺组件，龙虾会主动引导；若一切就绪，它将为您呈现一份极具冲击力的**结构化风控报告**！
+3. 见证奇迹：如果您的环境尚缺增强组件，龙虾会在**不影响基础巡检**的前提下主动说明并引导；若一切就绪，它将为您呈现一份极具冲击力的**结构化风控报告**！
 
 <a name="cli-usage"></a>
 ### 💻 开发者入口 (环境预检 & 一键安装)
@@ -218,7 +225,7 @@ node cli/healthguard.js
 
 ### 📊 真机演示报告示例
 
-默认情况下，龙虾会对 **估值 >= 10 USDT** 的资产自动执行完整四维巡检（新闻 / 推特 / 解锁 / 技术面），而小额资产只放入摘要区，避免噪音过高。
+默认情况下，龙虾会对 **估值 >= 10 USDT** 的资产自动执行完整巡检。若已安装增强情报能力，则自动加入 **新闻 / 推特 / 解锁 / 技术面 / 交易所状态**；若未安装增强情报能力，则自动进入 **降级模式**，继续完成基础版巡检，而小额资产只放入摘要区，避免噪音过高。
 
 当侦测到风险时，龙虾会为您输出如下专业报告：
 

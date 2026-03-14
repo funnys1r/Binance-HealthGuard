@@ -20,6 +20,7 @@ Unlike "Blackbox Bots" that trade while you sleep:
 *   HealthGuard **logs every diagnostic step**.
 *   HealthGuard **explains its reasoning** before suggesting any trade.
 *   HealthGuard **waits for the specific string "CONFIRM"** before it can unlock the `binance/spot` skill.
+*   Optional intelligence providers such as OpenNews/OpenTwitter should enrich the report when available, but must not become a hard blocker for core read-only portfolio diagnostics.
 
 ### 4. Deployment Isolation (Separation of Concerns)
 
@@ -32,3 +33,5 @@ Unlike "Blackbox Bots" that trade while you sleep:
 
 ## ⚖️ Risk Disclosure
 While HealthGuard reduces monitoring effort, the final financial decision always belongs to the human holder. Use the "Observer Mode" for one month before considering "Guardian Mode."
+
+Optional intelligence providers (OpenNews / OpenTwitter / 6551 token) improve context quality, but the absence of these providers must not be treated as a reason to disable core read-only risk monitoring.

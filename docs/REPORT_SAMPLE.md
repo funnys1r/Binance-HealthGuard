@@ -18,6 +18,23 @@
 
 ---
 
+## 🧩 Intelligence Coverage
+- **Binance Assets / Earn**: OK
+- **Binance Official Status**: OK
+- **Token Unlocks**: OK
+- **OpenNews**: OK
+- **OpenTwitter**: OK
+- **Confidence**: High
+
+> If OpenNews or OpenTwitter is not installed, HealthGuard should stay operational in degraded mode and clearly downgrade confidence rather than aborting the report.
+>
+> Example degraded-mode view:
+> - OpenNews: unavailable
+> - OpenTwitter: unavailable
+> - Confidence: Medium
+
+---
+
 ## 🔍 Multi-Dimensional Risk Analysis
 
 ### 🔓 Tokenomist Unlock Alert: ARB

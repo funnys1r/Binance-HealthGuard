@@ -12,7 +12,8 @@ Before transitioning from **Observer Mode** to **Guardian Mode** with real asset
 - [ ] **CLI Smoke Tests Pass**: Run `node tests/cli_smoke_test.js` and verify the guardrails fail closed for missing config and withdrawal markers.
 - [ ] **Mock Test Pass**: Run `node tests/scenario_tester.js` and verify you understand the Agent's decision logic.
 - [ ] **Live Scope Audit Pass**: Run `node cli/healthguard.js` and confirm the API key scope summary matches your intended mode (`SAFE_FOR_OBSERVER` for read-only setups).
-- [ ] **Automatic Deep Analysis Policy Confirmed**: Verify that assets worth **10 USDT or more** are analyzed automatically across news, Twitter sentiment, unlocks, exchange status, and technicals without extra user prompting.
+- [ ] **Automatic Deep Analysis Policy Confirmed**: Verify that assets worth **10 USDT or more** are analyzed automatically across unlocks, exchange status, and technicals, and that news/Twitter enrichment is added automatically when optional intelligence providers are available.
+- [ ] **Degraded Mode Confirmed**: Verify that if `opennews` or `opentwitter` is missing, HealthGuard still produces a useful core-mode report with an explicit Intelligence Coverage / Confidence section.
 - [ ] **Review Report Format**: Read `docs/REPORT_SAMPLE.md` to know what an alert looks like.
 - [ ] **Human-in-the-Loop Drill**: Practice the `CONFIRM` command only for real execution actions, not for ordinary analysis steps.
 
