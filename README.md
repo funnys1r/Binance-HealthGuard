@@ -38,7 +38,7 @@ We believe AI should be a **Copilot, not an Autopilot**.
 <a name="english"></a>
 ## 🛡️ Binance HealthGuard (English)
 
-HealthGuard represents a paradigm shift from traditional "passive trading bots" to a **proactive, all-weather asset health monitoring system**. In its **core mode**, it can already analyze portfolio structure, Binance official status, token unlocks, and technical indicators. In its **enhanced mode**, it additionally integrates 6551 OpenNews and OpenTwitter MCP intelligence to safeguard your portfolio against black swan events with richer context.
+HealthGuard represents a paradigm shift from traditional "passive trading bots" to a **proactive, all-weather asset health monitoring system**. In its **core mode**, it already covers unified portfolio structure, Binance official status, token unlocks, technical indicators, market-priority ranking, and trading-signal context. In its **enhanced mode**, it additionally integrates external intelligence such as 6551 OpenNews / OpenTwitter and third-party event streams for richer context.
 
 ### 📦 Modular Dependencies
 
@@ -64,11 +64,13 @@ HealthGuard represents a paradigm shift from traditional "passive trading bots" 
 
 ### ✨ Exclusive Innovations in this Fork
 
-This repository enriches the official `binance-skills-hub` with **three groundbreaking, custom-built skills**:
+This repository enriches the official `binance-skills-hub` with a more complete **HealthGuard workflow layer**:
 
-1. **`healthguard` (The Core Brain)**: Introduces a dynamic, user-defined high-frequency health check routine (e.g., every 30 mins). It boasts a true "Agent-First" architecture that autonomously detects missing MCP dependencies and guides the user through the `npx skills add` installation process via natural language dialogue.
-2. **`simple-earn` (The Asset X-Ray)**: Fills a critical gap in the official APIs. It allows the agent to monitor otherwise invisible "sleeping assets" locked in Flexible/Locked Earn products, computing the user's *true* portfolio weight.
-3. **`token-unlocks` (The Inflation Radar)**: Integrates external economic data to monitor massive upcoming token unlocks (e.g., >2% of supply unlocking within 7 days), proactively warning the user of potential supply dumps.
+1. **`healthguard` (The Core Brain)**: Introduces a dynamic, user-defined high-frequency health check routine (e.g., every 30 mins). It orchestrates the full portfolio-diagnostics flow and guides the user through layered installation and optional intelligence expansion.
+2. **`simple-earn` (The Asset X-Ray)**: Makes Earn positions visible so the agent can compute the user's *true* portfolio weight instead of only looking at spot balances.
+3. **`token-unlocks` (The Inflation Radar)**: Monitors upcoming unlock pressure and turns it into an actionable risk signal.
+4. **`crypto-market-rank` (Market Priority Layer)**: Explains what deserves attention first in the broader market and why it matters now.
+5. **`trading-signal` (Action Context Layer)**: Explains whether there is timing context from Binance smart-money signals before any action is considered.
 
 Watch as the Agent autonomously assesses your environment and generates a comprehensive, color-coded risk report.
 
@@ -86,7 +88,7 @@ Watch as the Agent autonomously assesses your environment and generates a compre
 ### 📖 Workflow Walkthrough
 
 1. **User**: "Hey Claw, start HealthGuard."
-2. **Claw**: "Master, core mode is ready. I can already inspect your holdings, exchange status, unlock risks, and technicals. If you want richer intelligence, I can also use OpenNews/OpenTwitter after you enable the optional 6551 stack."
+2. **Claw**: "Master, core mode is ready. I can already inspect your holdings, exchange status, unlock risks, technicals, market priority, and trading-signal context. If you want richer intelligence, I can also use OpenNews/OpenTwitter after you enable the optional 6551 stack."
 3. **User**: "Run the check now." 
 4. **Claw**: "Done! I see your **32.5 ETH** in Simple Earn. ETH RSI is 72 (Overbought). Enhanced intelligence mode is currently available, and macro news around SEC is negative. I suggest moving part of the position to USDT. Confirm?"
 5. **User**: "Confirm." (Claw executes the swap).

@@ -104,7 +104,8 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
      - which sources were used successfully
      - which optional sources were unavailable
      - a final report confidence level such as `High`, `Medium`, or `Low`
-   - Treat `crypto-market-rank` and `trading-signal` as **optional enhancers** too: their absence should lower richness, not break the report.
+   - Treat external intelligence sources (such as `opennews`, `opentwitter`, BWEnews, or third-party event feeds) as optional enhancers: their absence should lower richness, not break the report.
+   - `crypto-market-rank` and `trading-signal` belong to the **core analysis layer** and should be attempted as standard core capabilities when installed.
 
 4. **Dynamic Scheduling**: 
    Obey the user's commands regarding frequency (e.g., "every 15 minutes" or "every 2 hours" or a one-time check).
