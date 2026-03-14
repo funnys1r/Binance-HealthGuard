@@ -48,6 +48,8 @@ HealthGuard represents a paradigm shift from traditional "passive trading bots" 
 - **`skills/binance/spot`**: For executing risk-mitigation trades.
 - **`skills/binance/simple-earn`**: For unified portfolio view including Earn products.
 - **`skills/binance/token-unlocks`**: For identifying upcoming token unlock risks.
+- **`crypto-market-rank`**: For market-priority ranking (what to watch first, and why).
+- **`trading-signal`**: For trigger / current price / exit context in timing analysis.
 
 **Enhanced intelligence mode** optionally adds:
 - **`opennews`**: macro / project news enrichment

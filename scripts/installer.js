@@ -20,6 +20,8 @@ const coreSteps = [
   { cmd: 'npx skills add binance/spot', label: 'binance/spot' },
   { cmd: 'npx skills add binance/simple-earn', label: 'binance/simple-earn' },
   { cmd: 'npx skills add binance/token-unlocks', label: 'binance/token-unlocks' },
+  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill crypto-market-rank', label: 'crypto-market-rank' },
+  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill trading-signal', label: 'trading-signal' },
 ];
 
 const optionalIntelSteps = [
