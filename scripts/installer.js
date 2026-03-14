@@ -14,14 +14,17 @@ const withOptionalIntel = args.has('--with-optional-intel');
 
 const results = [];
 
-const coreSteps = [
-  { cmd: 'npx skills add binance/assets', label: 'binance/assets' },
-  { cmd: 'npx skills add binance/alpha', label: 'binance/alpha' },
-  { cmd: 'npx skills add binance/spot', label: 'binance/spot' },
-  { cmd: 'npx skills add binance/simple-earn', label: 'binance/simple-earn' },
-  { cmd: 'npx skills add binance/token-unlocks', label: 'binance/token-unlocks' },
-  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill crypto-market-rank', label: 'crypto-market-rank' },
-  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill trading-signal', label: 'trading-signal' },
+const coreInstallSteps = [
+  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill assets --yes --global', label: 'assets' },
+  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill alpha --yes --global', label: 'alpha' },
+  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill spot --yes --global', label: 'spot' },
+  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill crypto-market-rank --yes --global', label: 'crypto-market-rank' },
+  { cmd: 'npx skills add https://github.com/binance/binance-skills-hub --skill trading-signal --yes --global', label: 'trading-signal' },
+];
+
+const bundledCoreChecks = [
+  { path: 'skills/binance/simple-earn/SKILL.md', label: 'simple-earn (bundled)' },
+  { path: 'skills/binance/token-unlocks/SKILL.md', label: 'token-unlocks (bundled)' },
 ];
 
 const optionalIntelSteps = [
@@ -33,8 +36,10 @@ function printPlan() {
   console.log('--- Binance HealthGuard Layered Installer ---\n');
   console.log(`Mode: ${coreOnly ? 'core-only' : withOptionalIntel ? 'core+optional-intel' : 'core-only (default)'}`);
   console.log(`Dry-run: ${dryRun ? 'yes' : 'no'}`);
-  console.log('\nCore install set:');
-  coreSteps.forEach(s => console.log(`- ${s.label}`));
+  console.log('\nCore install set (external official skills):');
+  coreInstallSteps.forEach(s => console.log(`- ${s.label}`));
+  console.log('\nCore bundled skills (shipped with this repository):');
+  bundledCoreChecks.forEach(s => console.log(`- ${s.label}`));
   console.log('\nOptional intelligence set:');
   optionalIntelSteps.forEach(s => console.log(`- ${s.label}`));
   console.log('\nPreflight:');
@@ -59,6 +64,23 @@ function run(step) {
   }
 }
 
+function checkBundled(step) {
+  console.log(`> Checking bundled skill: ${step.path}`);
+  if (dryRun) {
+    results.push({ label: step.label, status: 'DRY_RUN' });
+    return;
+  }
+  const fs = require('fs');
+  if (fs.existsSync(step.path)) {
+    results.push({ label: step.label, status: 'OK' });
+  } else {
+    results.push({ label: step.label, status: 'FAIL' });
+    console.error(`| Missing bundled skill: ${step.path}`);
+    printSummary();
+    process.exit(1);
+  }
+}
+
 function printSummary() {
   console.log('\n--- Install Summary ---');
   for (const item of results) {
@@ -68,20 +90,23 @@ function printSummary() {
 
 printPlan();
 
-console.log('[1/3] Installing core Binance skills...');
-for (const step of coreSteps) run(step);
+console.log('[1/4] Installing core official Binance skills...');
+for (const step of coreInstallSteps) run(step);
+
+console.log('\n[2/4] Verifying bundled core skills...');
+for (const step of bundledCoreChecks) checkBundled(step);
 
 if (!coreOnly && withOptionalIntel) {
-  console.log('\n[2/3] Installing optional intelligence providers...');
+  console.log('\n[3/4] Installing optional intelligence providers...');
   for (const step of optionalIntelSteps) run(step);
 } else {
-  console.log('\n[2/3] Skipping optional intelligence providers.');
+  console.log('\n[3/4] Skipping optional intelligence providers.');
   if (!withOptionalIntel) {
     console.log('Tip: rerun with --with-optional-intel if you want OpenNews/OpenTwitter.');
   }
 }
 
-console.log('\n[3/3] Finalizing environment...');
+console.log('\n[4/4] Finalizing environment...');
 run({ cmd: 'node cli/healthguard.js', label: 'preflight' });
 
 printSummary();

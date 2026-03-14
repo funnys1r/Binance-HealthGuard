@@ -39,7 +39,7 @@ This document explains what has been validated, what remains partially validated
 ## Installation / Safety
 | Area | Status | Notes |
 |------|--------|-------|
-| Layered installer (`--core-only`) | Validated | installer supports core-only mode (5 Binance official skills + 2 Binance Web3 core skills) |
+| Layered installer (`--core-only`) | Validated | installer supports core-only mode by installing 5 official skills from `binance-skills-hub` and verifying 2 bundled core skills shipped in this repository |
 | Layered installer (`--with-optional-intel`) | Validated | installer supports optional intelligence mode |
 | Dry-run installer plan | Validated | installer supports `--dry-run` |
 | Dedicated workspace guidance | Validated | documented in README / SECURITY / RUNBOOK |
