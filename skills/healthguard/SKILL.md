@@ -116,7 +116,7 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
 
    The report should be structured in **three layers**:
    - **Portfolio Layer**: total assets, stablecoin ratio, number of major holdings, overall account health conclusion, unified health score, and risk enum
-   - **Major Holdings Layer**: one section per asset worth 10+ USDT, including news / social / unlock / technical summary, plus market-rank / trading-signal context when available
+   - **Major Holdings Layer**: one section per asset worth 10+ USDT, including news / social / unlock / technical summary, plus **mandatory display fields** for market-rank and trading-signal context
    - **Minor Holdings Layer**: compact summary only, unless the user explicitly asks for detail
 
    **Standard Report Template**:
@@ -141,6 +141,10 @@ When the user invokes HealthGuard (e.g., "Start HealthGuard", "Run asset health 
    **Major/Minor Rendering Rule**:
    - Assets worth **10 USDT or more** must appear in the full `Major Holdings` section.
    - Assets worth **less than 10 USDT** must be compressed into the `Minor Holdings` section by default.
+   - For every `Major Holding`, the report must include explicit lines for:
+     - `Market Priority` (from `crypto-market-rank`)
+     - `Trading Signal` (from `trading-signal`)
+   - If these sources return no useful match, the report should still show the fields and say `no strong rank signal`, `no active trading signal`, or `unavailable`.
 
 6. **Security-First Principle**: 
    - At the beginning of a conversation, if the user hasn't explicitly specified, recommend using a **Read-only API Key** for monitoring (Mode A).

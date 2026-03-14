@@ -47,8 +47,8 @@
 - 解锁风险
 - 新闻 / 社交情绪
 - 技术面
-- 市场优先级（crypto-market-rank，如可用）
-- 交易信号摘要（trading-signal，如可用）
+- **市场优先级（固定字段）**：来自 `crypto-market-rank`，即使无结果也应写明 unavailable / no strong rank signal
+- **交易信号摘要（固定字段）**：来自 `trading-signal`，即使无结果也应写明 unavailable / no active signal
 - 一句话结论
 
 > 主要持仓必须完整展开，不能只在摘要里一笔带过。
@@ -80,3 +80,4 @@
 - 组合级信息优先于单币级碎片信息
 - 小额持仓降噪处理
 - 缺失依赖时不报废，只降级，并明确说明覆盖范围与置信度
+- `crypto-market-rank` 与 `trading-signal` 在主要持仓里应视为**标准展示字段**，不是“有就写、没有就完全省略”

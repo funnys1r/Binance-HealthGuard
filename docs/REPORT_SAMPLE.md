@@ -64,6 +64,14 @@
 - **Status**: Normal.
 - **Note**: Network maintenance scheduled for next Tuesday.
 
+### 📈 Market Priority（Crypto Market Rank）
+- **Priority**: High
+- **Why it matters now**: ARB remains one of the market's more discussable assets because of unlock-driven attention and elevated search / activity context.
+
+### ⏱️ Trading Signal（Trading Signal）
+- **Status**: No active smart-money signal
+- **Interpretation**: There is no strong timing edge from Binance smart-money signals right now; treat this as a risk-monitoring case rather than an action-confirmation case.
+
 ### 🧠 Combined Verdict
 - **Why ARB is elevated**: unlock pressure + negative social sentiment + weak near-term positioning.
 - **Why the whole account is not critical**: the risk is concentrated in one major asset rather than spread across the full portfolio.

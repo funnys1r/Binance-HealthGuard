@@ -244,6 +244,8 @@ node cli/healthguard.js
 - **组合健康分**：0-100
 - **主要持仓（>=10 USDT）**：完整展开
 - **小额持仓（<10 USDT）**：摘要压缩
+- **Market Priority**：主要持仓必须展示
+- **Trading Signal**：主要持仓必须展示
 
 当侦测到风险时，龙虾会为您输出如下专业报告：
 
