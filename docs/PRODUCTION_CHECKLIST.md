@@ -23,5 +23,12 @@ Before transitioning from **Observer Mode** to **Guardian Mode** with real asset
 - [ ] **Emergency Stop**: Have the Binance Mobile App ready to manually cancel orders or disable API keys if you see unexpected behavior from the AI.
 
 ---
+
+## ✅ Phase 4: Reporting Quality
+- [ ] **Portfolio-Level Clarity**: Verify the report gives a clear account-level conclusion, not just disconnected per-asset facts.
+- [ ] **Coverage / Confidence Clarity**: Verify optional intelligence sources are explicitly marked as available or unavailable.
+- [ ] **Minor Holdings Compression**: Verify small positions are summarized compactly so the report stays readable.
+
+---
 > [!CAUTION]
 > **Market Risk Disclaimer**: AI can hallucinate. Decisions provided by HealthGuard are based on data correlation, not "Future Sight." Always verify critical suggestions.

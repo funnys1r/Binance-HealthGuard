@@ -12,10 +12,10 @@ graph TD
     end
     Orchestrator -->|Dynamic Fetch| Assets[Binance Assets & Simple Earn]
     Orchestrator -->|Scan| Economic[Tokenomist.ai Unlocks]
-    Orchestrator -->|Listen| Social[6551 News & Twitter MCP]
+    Orchestrator -->|Optionally Listen| Social[OpenNews / OpenTwitter MCP]
     Orchestrator -->|Check| Official[Binance Official Announcements]
     
-    Orchestrator -->|Construct| Report[Structured Health Report]
+    Orchestrator -->|Construct| Report[Structured Health Report + Coverage / Confidence]
     Report -->|Propose| Action{Risk Mitigation?}
     Action -->|Require Human Confirm| User
     User -->|CONFIRM| Execute[Spot Trading Skill]
@@ -30,6 +30,7 @@ To eliminate "Production Risks," we enforce three layers of security:
 ## 📊 Data Flow Orchestration
 1. **Reconnaissance**: Merge Spot balances + Earn balances into a unified weighted portfolio.
 2. **Thresholding**: Automatically classify assets into **major holdings (>=10 USDT)** and **minor holdings (<10 USDT)**.
-3. **Automatic Deep Analysis**: For every major holding, run the full analysis stack by default: exchange status, unlocks, news, social sentiment, and technicals.
-4. **Correlation**: Cross-reference price volatility with upcoming unlocks, exchange status, and macro/news sentiment.
-5. **Synthesis**: Convert complex raw data into a human-readable “Medical Prescription” (take-action recommendation) while keeping minor holdings compressed into summary form.
+3. **Automatic Deep Analysis**: For every major holding, run the default analysis stack: exchange status, unlocks, technicals, plus optional news/social enrichment when available.
+4. **Degraded Intelligence Handling**: If optional intelligence providers are missing, continue the report and downgrade coverage / confidence instead of aborting.
+5. **Correlation**: Cross-reference price volatility with upcoming unlocks, exchange status, and macro/news sentiment.
+6. **Synthesis**: Convert complex raw data into a human-readable “Medical Prescription” (take-action recommendation) while keeping minor holdings compressed into summary form.

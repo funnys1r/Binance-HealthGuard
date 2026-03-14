@@ -4,6 +4,7 @@
 **Status**: 🟠 [MEDIUM RISK]  
 **Timestamp**: 2024-03-14 03:00 UTC  
 **Guardian Mode**: Observer (Read-Only)
+**Portfolio Health Score**: **72 / 100**
 
 ---
 
@@ -13,6 +14,12 @@
 | **ARB** | $12,500 | 🔴 Critical | Heavy Token Unlock (72h) |
 | **BNB** | $8,200 | 🟢 Safe | No major news |
 | **USDT** | $2,000 | 🟢 Safe | Cash on hand |
+
+### Account-Level Takeaway
+- **Stablecoin Ratio**: 8.8%
+- **Major Holdings Analyzed**: 3
+- **Minor Holdings Suppressed**: 4 small positions under 10 USDT
+- **Overall Interpretation**: Portfolio risk is dominated by **ARB**; the rest of the account is comparatively stable.
 
 **Default policy used in this report:** assets worth **10 USDT or more** receive the full HealthGuard analysis pipeline automatically (news, Twitter sentiment, unlocks, exchange status, technicals). Smaller assets are listed in a compact summary unless explicitly requested.
 
@@ -35,6 +42,12 @@
 
 ---
 
+## ⚪ Minor Holdings Summary
+- **Minor holdings are intentionally compressed** to reduce noise.
+- Example: FOGO / WLFI / dust BNB positions remain visible in the summary, but do not trigger full intelligence scans unless the user asks.
+
+---
+
 ## 🔍 Multi-Dimensional Risk Analysis
 
 ### 🔓 Tokenomist Unlock Alert: ARB
@@ -50,6 +63,10 @@
 ### 📢 Official Binance Announcement
 - **Status**: Normal.
 - **Note**: Network maintenance scheduled for next Tuesday.
+
+### 🧠 Combined Verdict
+- **Why ARB is elevated**: unlock pressure + negative social sentiment + weak near-term positioning.
+- **Why the whole account is not critical**: the risk is concentrated in one major asset rather than spread across the full portfolio.
 
 ---
 

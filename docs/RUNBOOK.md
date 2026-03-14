@@ -6,7 +6,8 @@
 3. Run `node tests/cli_smoke_test.js`.
 4. Run `node tests/scenario_tester.js`.
 5. Run `node cli/healthguard.js` with the real key and verify the scope summary shows `SAFE_FOR_OBSERVER`.
-6. Use the agent in Observer mode for several days before considering any trading-capable key.
+6. Verify the report clearly displays **Intelligence Coverage / Confidence**, especially if optional intelligence providers are not installed.
+7. Use the agent in Observer mode for several days before considering any trading-capable key.
 
 ## Emergency Stop
 If the agent behaves unexpectedly:
